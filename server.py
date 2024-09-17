@@ -1,3 +1,8 @@
+"""
+This file is the backend server for the Coursera AI/ML with Flask.
+It will render the index.html and handle the request to analyze text for emotion
+"""
+
 from flask import Flask, render_template, request
 from EmotionDetection.emotion_detection import emotion_detector
 
@@ -21,7 +26,7 @@ def sent_detector():
     sadness = response['sadness']
     dom_emotion = response['dominant_emotion']
 
-    if dom_emotion == None:
+    if dom_emotion is None:
         return "Invalid input, please try again!"
 
     return f"For the given statement, the system response is \
